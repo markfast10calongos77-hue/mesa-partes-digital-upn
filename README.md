@@ -24,4 +24,8 @@ python -m unittest discover -s pruebas -v
 Los textos no pueden contener `|`.
 
 ## Integrantes
-(Completar: nombre y rol de cada integrante)
+- Marco Antonio Calongos Lopez — Desarrollo del prototipo y control de versiones (Git/GitHub)
+- Justin César Alfonso Gómez Porras — Levantamiento de requerimientos y análisis del proceso
+- Maribel Huillca Huallpa — Diseño de algoritmos, documentación e informe técnico
+- Mia Kassandra Manrique Dextre — Validación, pruebas con datos reales y presentación (PPT)
+- Adriano Félix Zamudio Poma — Persistencia de datos, revisión de código y soporte en pruebas
