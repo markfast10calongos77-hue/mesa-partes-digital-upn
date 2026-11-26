@@ -1,3 +1,4 @@
+# Validacion de DNI (8 digitos) y formato de fecha DD/MM/AAAA
 """Funciones de validación de datos de entrada."""
 from datetime import datetime
 
