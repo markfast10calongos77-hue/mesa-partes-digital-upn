@@ -1,12 +1,8 @@
 #ordenamiento burbuja de expediente por codigo
 """Operaciones sobre los expedientes (arreglos paralelos)."""
 from validaciones import (
-    validar_dni, validar_texto, validar_tramite, validar_fecha,
-)
-
+    validar_dni, validar_texto, validar_tramite, validar_fecha,)
 LIMITE = 100
-
-
 def nombre_tramite(opcion):
     tramites = {
         1: "Constancia de matricula",
@@ -15,15 +11,12 @@ def nombre_tramite(opcion):
         4: "Ficha unica de matricula (FUM)",
     }
     return tramites.get(opcion, "Desconocido")
-
-
 def generar_codigo(cod):
     mayor = 0
     for c in cod:
         if c > mayor:
             mayor = c
     return mayor + 1
-
 
 def _pedir_dni(mensaje):
     while True:
@@ -32,14 +25,12 @@ def _pedir_dni(mensaje):
             return dni
         print("El DNI debe contener exactamente 8 digitos.")
 
-
 def _pedir_nombre(mensaje):
     while True:
         nombre = input(mensaje).strip().upper()
         if validar_texto(nombre):
             return nombre
         print("Ingrese un nombre valido.")
-
 
 def _pedir_tramite():
     print("\nTIPOS DE TRAMITE")
@@ -56,14 +47,12 @@ def _pedir_tramite():
         except ValueError:
             print("Ingrese un numero valido.")
 
-
 def _pedir_fecha():
     while True:
         fecha = input("Fecha de recepcion (DD/MM/AAAA): ").strip()
         if validar_fecha(fecha):
             return fecha
         print("Fecha invalida. Use DD/MM/AAAA, una fecha real y no futura.")
-
 
 def registrar_expediente(cod, dni_a, nom_a, dni_e, nom_e, tram, fec, n):
     print("\n--- REGISTRO DE NUEVO EXPEDIENTE ---")
@@ -73,7 +62,6 @@ def registrar_expediente(cod, dni_a, nom_a, dni_e, nom_e, tram, fec, n):
         return n
 
     codigo = generar_codigo(cod)
-
     dni_apoderado = _pedir_dni("DNI del apoderado: ")
     nombre_apoderado = _pedir_nombre("Nombre del apoderado: ")
     dni_estudiante = _pedir_dni("DNI del estudiante: ")
@@ -93,7 +81,6 @@ def registrar_expediente(cod, dni_a, nom_a, dni_e, nom_e, tram, fec, n):
     print("\nExpediente registrado correctamente. Codigo asignado: EXP-" + str(codigo))
     return n
 
-
 def _mostrar(cod, dni_a, nom_a, dni_e, nom_e, tram, fec, i):
     print("Codigo: EXP-", cod[i], sep="")
     print("DNI apoderado:", dni_a[i])
@@ -102,7 +89,6 @@ def _mostrar(cod, dni_a, nom_a, dni_e, nom_e, tram, fec, i):
     print("Estudiante:", nom_e[i])
     print("Tramite:", nombre_tramite(tram[i]))
     print("Fecha de recepcion:", fec[i])
-
 
 def consultar_expediente(cod, dni_a, nom_a, dni_e, nom_e, tram, fec, n):
     print("\n--- CONSULTA DE EXPEDIENTE ---")
@@ -122,7 +108,6 @@ def consultar_expediente(cod, dni_a, nom_a, dni_e, nom_e, tram, fec, n):
 
     print("No se encontro el expediente solicitado.")
 
-
 def ordenar_por_codigo(cod, dni_a, nom_a, dni_e, nom_e, tram, fec, n):
     """Ordenamiento burbuja ascendente por código."""
     for i in range(n - 1):
@@ -138,7 +123,6 @@ def ordenar_por_codigo(cod, dni_a, nom_a, dni_e, nom_e, tram, fec, n):
 
     print("Expedientes ordenados correctamente.")
 
-
 def listar_expedientes(cod, dni_a, nom_a, dni_e, nom_e, tram, fec, n):
     print("\n--- EXPEDIENTES REGISTRADOS ---")
 
@@ -150,7 +134,6 @@ def listar_expedientes(cod, dni_a, nom_a, dni_e, nom_e, tram, fec, n):
         print("\n--------------------------------")
         _mostrar(cod, dni_a, nom_a, dni_e, nom_e, tram, fec, i)
 
-
 def contar_por_tramite(tram):
     """Devuelve [c1, c2, c3, c4] con la cantidad de expedientes por trámite."""
     conteo = [0, 0, 0, 0]
@@ -158,7 +141,6 @@ def contar_por_tramite(tram):
         if 1 <= tipo <= 4:
             conteo[tipo - 1] += 1
     return conteo
-
 
 def mostrar_resumen(tram, n):
     c1, c2, c3, c4 = contar_por_tramite(tram)
