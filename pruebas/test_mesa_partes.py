@@ -1,3 +1,4 @@
+# Caso de prueba para validación de datos de trámite 
 """Pruebas automáticas. Ejecutar desde la raíz del proyecto:
     python -m unittest discover -s pruebas -v
 """
