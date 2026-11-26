@@ -1,3 +1,4 @@
+#ordenamiento burbuja de expediente por codigo
 """Operaciones sobre los expedientes (arreglos paralelos)."""
 from validaciones import (
     validar_dni, validar_texto, validar_tramite, validar_fecha,
