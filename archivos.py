@@ -1,3 +1,4 @@
+# Persistencia en datos/expedientes.txt con campos separados por |
 """Persistencia: carga y guardado de expedientes en un archivo de texto."""
 import os
 
